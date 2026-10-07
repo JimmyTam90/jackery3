@@ -1,0 +1,19 @@
+import type { ReactNode } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default function LegalPage({ title, updated, children }: { title: string; updated: string; children: ReactNode }) {
+  return (
+    <>
+      <Header />
+      <main className="mx-auto max-w-3xl px-4 py-10">
+        <h1 className="text-3xl font-extrabold text-charcoal">{title}</h1>
+        <p className="mt-1 text-sm text-neutral-500">Last updated: {updated}</p>
+        <div className="mt-6 space-y-4 leading-relaxed text-neutral-800 [&_h2]:mt-8 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-charcoal [&_a]:text-brand [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6">
+          {children}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
