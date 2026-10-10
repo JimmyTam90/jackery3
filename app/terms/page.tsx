@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
-import { SITE } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  alternates: { canonical: "/terms" },
+  alternates: { canonical: absoluteUrl("/terms") },
   description: `Terms of use for ${SITE.domain}.`,
 };
 

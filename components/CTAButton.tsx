@@ -13,14 +13,14 @@ type Props = {
   ariaLabel?: string;
 };
 
-/** Native external affiliate link: target=_blank, rel=noopener noreferrer, no JS navigation. */
+/** Native external affiliate link: target=_blank, rel=noopener noreferrer, no JS navigation. Tracking is fire-and-forget. */
 export default function CTAButton({ href, label, location, children, variant = "primary", className = "", ariaLabel }: Props) {
   const base =
-    "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg px-5 py-3 text-base font-bold transition active:scale-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40";
+    "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg px-5 py-3 text-base font-extrabold transition active:scale-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/50";
   const styles =
     variant === "primary"
-      ? "bg-brand text-white hover:bg-brand-dark"
-      : "border-2 border-brand bg-white text-brand hover:bg-brand-light";
+      ? "bg-brand text-ink hover:bg-[#ff8533]"
+      : "border-2 border-brand bg-transparent text-brand hover:bg-brand/10";
   return (
     <a
       href={href}

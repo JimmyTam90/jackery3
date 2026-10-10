@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { SITE } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  alternates: { canonical: "/privacy" },
+  alternates: { canonical: absoluteUrl("/privacy") },
   description: `How ${SITE.name} handles information on primegearlab.com.`,
 };
 

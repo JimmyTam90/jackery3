@@ -1,7 +1,10 @@
 export const SITE = {
   name: "PrimeGearLab",
   domain: "primegearlab.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://primegearlab.com",
+  /** Domain origin only (no path). */
+  origin: (process.env.NEXT_PUBLIC_SITE_URL || "https://primegearlab.com").replace(/\/+$/, "").replace(/\/jackery$/, ""),
+  /** Must match basePath in next.config.mjs. */
+  basePath: "/jackery",
   email: "daniaengracia26377@gmail.com",
   merchantName: "Jackery",
   merchantOrigin: "https://www.jackery.com",
@@ -28,3 +31,9 @@ export const LEGAL_LINKS = [
   { href: "/affiliate-disclosure", label: "Affiliate Disclosure" },
   { href: "/contact", label: "Contact Us" },
 ] as const;
+
+/** Absolute public URL for a site path, including the basePath. "/" or "" is the home page. */
+export function absoluteUrl(path = ""): string {
+  const p = path === "/" ? "" : path;
+  return `${SITE.origin}${SITE.basePath}${p}`;
+}

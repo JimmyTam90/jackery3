@@ -1,5 +1,8 @@
 import { SITE } from "./site";
 
+/** Operator-confirmed: product deep links accept the affiliate parameters below. */
+export const DEEP_LINKS_VERIFIED = true;
+
 /** Provided default affiliate URL (fallback for any CTA). */
 export const DEFAULT_AFFILIATE_URL =
   "https://www.jackery.com?utm_source=affiliatly&utm_medium=affiliate&utm_campaign=affiliatelyus&aff=3185";
@@ -19,7 +22,7 @@ const AFFILIATE_PARAMS = (() => {
  * `path` must be a merchant path such as "/products/jackery-explorer-5000-plus".
  */
 export function affiliateUrl(path?: string, content?: string): string {
-  if (!path || !path.startsWith("/")) return DEFAULT_AFFILIATE_URL;
+  if (!DEEP_LINKS_VERIFIED || !path || !path.startsWith("/")) return DEFAULT_AFFILIATE_URL;
   try {
     const u = new URL(path, SITE.merchantOrigin);
     for (const [k, v] of Object.entries(AFFILIATE_PARAMS)) u.searchParams.set(k, v);

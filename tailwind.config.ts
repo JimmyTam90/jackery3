@@ -7,6 +7,9 @@ const config: Config = {
       colors: {
         brand: { DEFAULT: "#FF6600", dark: "#CC5200", light: "#FFF1E6" },
         charcoal: "#1A1A1A",
+        ink: "#111317",
+        panel: "#1A1D24",
+        line: "#2A2E38",
       },
     },
   },

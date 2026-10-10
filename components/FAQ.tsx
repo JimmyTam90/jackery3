@@ -3,11 +3,10 @@
 import { useState } from "react";
 import { FAQS } from "@/lib/faq";
 
-
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="divide-y divide-neutral-200 rounded-2xl border border-neutral-200 bg-white">
+    <div className="divide-y divide-line rounded-2xl border border-line bg-panel">
       {FAQS.map((f, i) => {
         const isOpen = open === i;
         return (
@@ -19,7 +18,7 @@ export default function FAQ() {
                 aria-expanded={isOpen}
                 aria-controls={`faq-panel-${i}`}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="flex min-h-[48px] w-full items-center justify-between gap-4 p-4 text-left font-bold text-charcoal focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40"
+                className="flex min-h-[48px] w-full items-center justify-between gap-4 p-4 text-left font-bold text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/50"
               >
                 <span>{f.q}</span>
                 <span aria-hidden="true" className="text-brand">{isOpen ? "−" : "+"}</span>
@@ -30,7 +29,7 @@ export default function FAQ() {
               role="region"
               aria-labelledby={`faq-btn-${i}`}
               hidden={!isOpen}
-              className="px-4 pb-4 text-neutral-700"
+              className="px-4 pb-4 text-neutral-300"
             >
               {f.a}
             </div>

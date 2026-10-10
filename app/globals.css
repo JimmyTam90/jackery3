@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { background: #ffffff; color: #1A1A1A; }
+body { background: #111317; color: #E8EAEE; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }

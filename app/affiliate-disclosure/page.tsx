@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { SITE } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Affiliate Disclosure",
-  alternates: { canonical: "/affiliate-disclosure" },
+  alternates: { canonical: absoluteUrl("/affiliate-disclosure") },
   description: `Affiliate disclosure for ${SITE.domain}.`,
 };
 

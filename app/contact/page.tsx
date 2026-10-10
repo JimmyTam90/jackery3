@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { SITE } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: absoluteUrl("/contact") },
   description: `Contact ${SITE.name}.`,
 };
 

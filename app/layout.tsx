@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { SITE } from "@/lib/site";
+import { SITE, absoluteUrl } from "@/lib/site";
 import { TRACKING } from "@/lib/tracking";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(SITE.origin),
   title: { default: SITE.title, template: `%s | ${SITE.name}` },
   description: SITE.description,
-  alternates: { canonical: "/" },
+  alternates: { canonical: absoluteUrl("/") },
   openGraph: {
     type: "website",
     siteName: SITE.name,
     title: SITE.title,
     description: SITE.description,
-    url: SITE.url,
+    url: absoluteUrl("/"),
     locale: SITE.locale,
   },
   twitter: { card: "summary_large_image", title: SITE.title, description: SITE.description },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FF6600",
+  themeColor: "#111317",
   viewportFit: "cover",
 };
 
@@ -33,12 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href={SITE.merchantOrigin} crossOrigin="" />
+        <link rel="preconnect" href={SITE.merchantOrigin} crossOrigin="anonymous" />
         <link rel="dns-prefetch" href={SITE.merchantOrigin} />
-        <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
+        <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.shopify.com" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="bg-ink font-sans text-neutral-200 antialiased">
         {children}
         {gtagId ? (
           <>
